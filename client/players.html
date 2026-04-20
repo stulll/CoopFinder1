@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoopFinder — Игроки</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header-branding">
+        <img src="logo.png" alt="Логотип CoopFinder" class="header-logo">
+        <a href="index.html" class="logo">CoopFinder</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="profile.html">Профиль</a>
+        <a href="players.html" class="nav__active">Игроки</a>
+        <a href="lobbies.html">Лобби</a>
+        <a href="login.html">Вход</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-header">
+          <div>
+            <h1>Список игроков</h1>
+            <p>Найдите себе команду и напишите игроку, чтобы познакомиться и начать играть вместе.</p>
+          </div>
+        </div>
+
+        <div class="profile-cards" id="playersContainer">
+          <div class="loader">Загрузка игроков...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoopFinder — поиск сокомандников</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1CmMRg3Lpe8IISw7tbP+21nnh+czDV5z9CmFnrxQY0kaGx76n0tbIqgJ9x4EaFfPlevYC8Vy6RvGfJCZ9Wl+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header-branding">
+        <img src="logo.png" alt="Логотип CoopFinder" class="header-logo">
+        <a href="#hero" class="logo">CoopFinder</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="profile.html">Профиль</a>
+        <a href="players.html">Игроки</a>
+        <a href="lobbies.html">Лобби</a>
+        <a href="login.html">Вход</a>
+        <a href="#features">Возможности</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero__inner">
+        <div>
+          <h1>CoopFinder — платформа для поиска надежных тиммейтов</h1>
+          <p>Создайте анкету, найдите лобби и отправьте заявку на подходящую команду. Удобный поиск по ролям, платформам и целям.</p>
+          <div class="hero-buttons">
+            <a href="login.html" class="button">Войти в аккаунт</a>
+            <a href="register.html" class="button button--highlight">Регистрация</a>
+            <a href="#features" class="button button--secondary">Узнать больше</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="hero.jpg" alt="Главная страница CoopFinder" class="hero-photo">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2>Функции сайта</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Регистрация и профиль</h3>
+            <p>Пользователь создает аккаунт, заполняет профиль игры, указывает роли и платформы.</p>
+          </article>
+          <article class="card">
+            <h3>Создание лобби</h3>
+            <p>Лидер команды публикует заявку, описывает цель и требования к соискателям.</p>
+          </article>
+          <article class="card">
+            <h3>Поиск и фильтрация</h3>
+            <p>Фильтры по игре, роли, платформе, языку и рейтингу позволяют быстро найти подходящих игроков.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="quick-forms" class="section section--gray">
+      <div class="container">
+        <h2>Анкеты</h2>
+        <div class="grid">
+          <div class="panel">
+            <h3>Анкета игрока</h3>
+            <form class="form" data-form-type="profile">
+              <label>Никнейм</label>
+              <input name="username" type="text" placeholder="Введите никнейм" required>
+              <label>Роль</label>
+              <select name="role">
+                <option value="Керри">Керри</option>
+                <option value="Саппорт">Саппорт</option>
+                <option value="Танк">Танк</option>
+              </select>
+              <label>Платформы</label>
+              <input name="platform" type="text" placeholder="ПК, PS, Xbox, Mobile" required>
+              <label>Цель</label>
+              <select name="goal">
+                <option value="Казуал">Казуал</option>
+                <option value="Рейтинг">Рейтинг</option>
+                <option value="Обучение">Обучение</option>
+              </select>
+              <button type="submit" class="button">Сохранить анкету</button>
+            </form>
+          </div>
+
+          <div class="panel">
+            <h3>Создать лобби</h3>
+            <form class="form" data-form-type="lobby">
+              <label>Игра</label>
+              <input name="game" type="text" placeholder="Dota 2, CS2, WoW" required>
+              <label>Платформа</label>
+              <input name="platform" type="text" placeholder="ПК, PS, Xbox, Mobile" required>
+              <label>Что ищу</label>
+              <input name="role_needed" type="text" placeholder="Саппорт, Танк, DPS" required>
+              <label>Цель</label>
+              <select name="goal">
+                <option value="Казуал">Казуал</option>
+                <option value="Рейтинг">Рейтинг</option>
+                <option value="Обучение">Обучение</option>
+              </select>
+              <label>Описание</label>
+              <textarea name="description" placeholder="Напишите требования к игрокам" required></textarea>
+              <button type="submit" class="button">Опубликовать</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--footer">
+      <div class="container contact-block">
+        <h2>Контакты</h2>
+        <p>example@mail.ru</p>
+        <p>+7 *** *** ** **</p>
+        <div class="contact-links">
+          <a href="#" class="contact-link"><img src="VK.png" alt="ВКонтакте" class="contact-icon"> ВКонтакте</a>
+          <a href="#" class="contact-link"><img src="MAX.png" alt="Макс" class="contact-icon"> Макс</a>
+          <a href="terms.html" class="contact-link">Условия обслуживания</a>
+          <a href="privacy.html" class="contact-link">Политика конфиденциальности</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

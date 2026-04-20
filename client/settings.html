@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoopFinder — Настройки профиля</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header-branding">
+        <img src="logo.png" alt="Логотип CoopFinder" class="header-logo">
+        <a href="index.html" class="logo">CoopFinder</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="profile.html">Профиль</a>
+        <a href="players.html">Игроки</a>
+        <a href="settings.html" class="nav__active">Настройки</a>
+        <a href="lobbies.html">Лобби</a>
+        <a href="login.html">Вход</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-header">
+          <div>
+            <h1>Настройки профиля</h1>
+            <p>Настройте ник и сохраните изменения.</p>
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <div class="panel profile-panel">
+            <h2>Редактировать профиль</h2>
+            <form class="form auth-form" data-form-type="profile">
+              <label>Никнейм</label>
+              <input id="profileName" name="username" type="text" placeholder="Введите новый ник" required>
+              <button type="submit" class="button button--highlight">Сохранить профиль</button>
+            </form>
+          </div>
+
+          <div class="panel profile-panel">
+            <h2>Изменения профиля</h2>
+            <p>После сохранения вы сможете увидеть результат на странице профиля.</p>
+            <div class="profile-settings-info">
+              <p>Используйте эту страницу для редактирования личных данных.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

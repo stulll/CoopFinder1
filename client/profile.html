@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoopFinder — Профиль</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header-branding">
+        <img src="logo.png" alt="Логотип CoopFinder" class="header-logo">
+        <a href="index.html" class="logo">CoopFinder</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="profile.html" class="nav__active">Профиль</a>
+        <a href="players.html">Игроки</a>
+        <a href="lobbies.html">Лобби</a>
+        <a href="login.html">Вход</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-header">
+          <div>
+            <h1>Мой профиль</h1>
+            <p>Управляйте своим ником, аватаркой, просматривайте свои анкеты и присоединенные лобби.</p>
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <div class="panel profile-panel">
+            <h2>Данные аккаунта</h2>
+            <div class="profile-view-info">
+              <div class="profile-view-row">
+                <strong>Никнейм:</strong>
+                <span id="profileUsername">Игрок123</span>
+              </div>
+              <a class="button button--highlight" href="settings.html">Настройки профиля</a>
+            </div>
+            </div>
+          </div>
+
+          <div class="panel profile-panel">
+            <h2>Мои анкеты</h2>
+            <div class="profile-cards" id="profileCards">
+              <!-- Анкеты загружаются сюда -->
+            </div>
+          </div>
+        </div>
+
+        <div class="section section--gray">
+          <div class="container">
+            <h2>Мои лобби</h2>
+            <div class="lobbies-grid" id="userLobbies">
+              <!-- Лобби загружаются сюда -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const avatarInput = document.getElementById('profileAvatar');
+      const avatarPreview = document.getElementById('avatarPreview');
+      avatarInput?.addEventListener('change', (event) => {
+        const file = event.target.files?.[0];
+        if (file) {
+          const url = URL.createObjectURL(file);
+          avatarPreview.style.backgroundImage = `url('${url}')`;
+          avatarPreview.textContent = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

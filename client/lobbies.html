@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoopFinder — Лобби</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header-branding">
+        <img src="logo.png" alt="Логотип CoopFinder" class="header-logo">
+        <a href="index.html" class="logo">CoopFinder</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="profile.html">Профиль</a>
+        <a href="players.html">Игроки</a>
+        <a href="lobbies.html" class="nav__active">Лобби</a>
+        <a href="index.html#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="page-header">
+          <div>
+            <h1>Объявления</h1>
+            <p>Список актуальных групп и заявок, сохранённых в базе данных.</p>
+          </div>
+          <a href="index.html#quick-forms" class="button">Создать своё лобби</a>
+        </div>
+
+        <div class="lobbies-grid" id="lobbyList">
+          <div class="loader">Загрузка лобби...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="lobbies.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoopFinder — Вход</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <div class="header-branding">
+        <img src="logo.png" alt="Логотип CoopFinder" class="header-logo">
+        <a href="index.html" class="logo">CoopFinder</a>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="profile.html">Профиль</a>
+        <a href="players.html">Игроки</a>
+        <a href="lobbies.html">Лобби</a>
+        <a href="login.html" class="nav__active">Вход</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section--gray">
+      <div class="container">
+        <div class="auth-panel">
+          <div>
+            <h1>Вход в аккаунт</h1>
+            <p>Используйте email и пароль, чтобы войти в свой профиль CoopFinder.</p>
+          </div>
+          <div class="panel panel--auth">
+            <form class="form auth-form" data-form-type="login">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="Введите Email" required>
+              <label>Пароль</label>
+              <input type="password" name="password" placeholder="Введите пароль" required>
+              <button type="submit" class="button">Войти</button>
+            </form>
+            <p class="auth-note">Еще нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
