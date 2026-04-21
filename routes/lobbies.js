@@ -3,15 +3,32 @@ const { authenticateToken, db } = require('../server');
 
 const router = express.Router();
 
+function runListLobbiesQuery(query, params, res, onSchemaError) {
+  db.all(query, params, (err, rows) => {
+    if (err) {
+      const isMissingStatus = typeof err.message === 'string' && err.message.includes('no such column: l.status');
+      if (isMissingStatus && onSchemaError) {
+        onSchemaError();
+        return;
+      }
+      return res.status(500).json({ message: 'Ошибка сервера' });
+    }
+    res.json(rows);
+  });
+}
+
 router.get('/', (req, res) => {
-  db.all(`
+  runListLobbiesQuery(`
     SELECT l.*, u.username as leader_username
     FROM lobbies l
     JOIN users u ON l.leader_id = u.id
     WHERE l.status = 'active'
-  `, [], (err, rows) => {
-    if (err) return res.status(500).json({ message: 'Ошибка сервера' });
-    res.json(rows);
+  `, [], res, () => {
+    runListLobbiesQuery(`
+      SELECT l.*, u.username as leader_username, 'active' as status
+      FROM lobbies l
+      JOIN users u ON l.leader_id = u.id
+    `, [], res);
   });
 });
 

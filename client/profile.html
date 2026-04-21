@@ -29,7 +29,7 @@
         <div class="page-header">
           <div>
             <h1>Мой профиль</h1>
-            <p>Управляйте своим ником, аватаркой, просматривайте свои анкеты и присоединенные лобби.</p>
+            <p>Управляйте своим ником, просматривайте свои анкеты и лобби.</p>
           </div>
         </div>
 
@@ -43,13 +43,11 @@
               </div>
               <a class="button button--highlight" href="settings.html">Настройки профиля</a>
             </div>
-            </div>
           </div>
 
           <div class="panel profile-panel">
             <h2>Мои анкеты</h2>
             <div class="profile-cards" id="profileCards">
-              <!-- Анкеты загружаются сюда -->
             </div>
           </div>
         </div>
@@ -58,7 +56,6 @@
           <div class="container">
             <h2>Мои лобби</h2>
             <div class="lobbies-grid" id="userLobbies">
-              <!-- Лобби загружаются сюда -->
             </div>
           </div>
         </div>
@@ -67,19 +64,5 @@
   </main>
 
   <script src="app.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const avatarInput = document.getElementById('profileAvatar');
-      const avatarPreview = document.getElementById('avatarPreview');
-      avatarInput?.addEventListener('change', (event) => {
-        const file = event.target.files?.[0];
-        if (file) {
-          const url = URL.createObjectURL(file);
-          avatarPreview.style.backgroundImage = `url('${url}')`;
-          avatarPreview.textContent = '';
-        }
-      });
-    });
-  </script>
 </body>
 </html>

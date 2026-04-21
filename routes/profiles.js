@@ -28,13 +28,25 @@ router.get('/me', authenticateToken, (req, res) => {
 
 router.post('/', authenticateToken, (req, res) => {
   const { username, role, platform, goal } = req.body;
-  db.run('UPDATE users SET username = ? WHERE id = ?', [username, req.user.userId], (err) => {
+  const trimmedUsername = typeof username === 'string' ? username.trim() : '';
+  if (!trimmedUsername) {
+    return res.status(400).json({ message: 'Никнейм обязателен' });
+  }
+
+  const isProfileCreation = [role, platform, goal].some((value) => typeof value === 'string' && value.trim() !== '');
+
+  db.run('UPDATE users SET username = ? WHERE id = ?', [trimmedUsername, req.user.userId], (err) => {
     if (err) {
       if (err.code === 'SQLITE_CONSTRAINT') {
         return res.status(400).json({ message: 'Такой никнейм уже занят' });
       }
       return res.status(500).json({ message: 'Ошибка сервера' });
     }
+
+    if (!isProfileCreation) {
+      return res.status(200).json({ username: trimmedUsername, message: 'Никнейм обновлен' });
+    }
+
     db.run('INSERT INTO profiles (user_id, role, platform, goal) VALUES (?, ?, ?, ?)', [req.user.userId, role, platform, goal], function(err) {
       if (err) {
         if (err.code === 'SQLITE_CONSTRAINT') {
@@ -42,7 +54,7 @@ router.post('/', authenticateToken, (req, res) => {
         }
         return res.status(500).json({ message: 'Ошибка сервера' });
       }
-      res.status(201).json({ id: this.lastID, username, role, platform, goal });
+      res.status(201).json({ id: this.lastID, username: trimmedUsername, role, platform, goal });
     });
   });
 });

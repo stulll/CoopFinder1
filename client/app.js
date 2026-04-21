@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
           alert('Ошибка создания лобби: ' + error.message);
         }
       } else {
-        alert('Это макет формы. Реальная отправка данных на сервер пока не подключена.');
+        alert('Неизвестный тип формы.');
       }
     });
   });
